@@ -1,6 +1,7 @@
 #include "applicationwindow.h"
 #include "ui_applicationwindow.h"
 
+#include <QVector>
 #include <iostream>
 
 ApplicationWindow::ApplicationWindow(QWidget *parent)
@@ -21,6 +22,21 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
            << "    Entity 2 ID: "
            << entity2
            << std::endl;
+
+    auto registry = m_Scene->ViewRegistry();
+
+    for (Night::Scene::Object* object : registry)
+    {
+        std::cout
+                << "Object ID: "
+                << object->entity_ID
+                << "    Position x:"
+                << static_cast<Night::Position_Component*>(object->components[0])->x
+                << "    Uuid :"
+                << object->uuid.toString().toStdString()
+                << std::endl;
+
+    }
 
 }
 

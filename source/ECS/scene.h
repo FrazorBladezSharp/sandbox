@@ -4,6 +4,7 @@
 #include "ECS.h"
 #include "components.h"
 #include <QVector>
+#include <QUuid>
 
 
 namespace Night
@@ -11,15 +12,6 @@ namespace Night
 
     class Scene
     {
-
-        typedef struct
-        {
-
-            int entity_ID;
-            QVector <void*> components;
-
-        } Object;
-
 
         struct Entity
         {
@@ -30,13 +22,18 @@ namespace Night
 
         };
 
-        Entity *m_Entity;
-
-        QVector <Object*> *m_Registry;
-
-
-
     public:
+
+        typedef struct
+        {
+
+            int entity_ID;
+            QUuid uuid;
+            QVector <void*> components;
+
+        } Object;
+
+
         Scene();
         ~Scene();
 
@@ -44,8 +41,14 @@ namespace Night
 
         int AddEntity();
 
+        const QVector <Object*>& ViewRegistry();
+
     private:
         void BaseComponents(int entity_id);
+
+        Entity *m_Entity;
+
+        QVector <Object*> *m_Registry;
 
     };
 

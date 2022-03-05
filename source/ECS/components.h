@@ -1,22 +1,23 @@
 #ifndef COMPONENTS_H
 #define COMPONENTS_H
 
-#include "ECS.h"
+
+#include <QVector>
 
 
 namespace Night
 {
 
-    enum class Components
+    enum class Component
     {
         COMP_POSITION,
         COMP_TOTAL
     };
 
-    struct Position
+    struct Position_Component
     {
-        float x;
-        float y;
+        float x = 0.0f;
+        float y = 0.0f;
     };
 
 

@@ -2,7 +2,7 @@
 #define APPLICATIONWINDOW_H
 
 #include <QMainWindow>
-#include "source/ECS/ECS.h"
+#include "source/ECS/scene.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ApplicationWindow; }

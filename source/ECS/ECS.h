@@ -3,9 +3,8 @@
 
 
 #define NIGHT_MAX_ENTITIES 32
+#define NIGHT_UNUSED -1
 
-#include "source/ECS/scene.h"
-#include "source/ECS/components.h"
 
 namespace Night
 {

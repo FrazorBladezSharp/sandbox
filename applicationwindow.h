@@ -2,6 +2,7 @@
 #define APPLICATIONWINDOW_H
 
 #include <QMainWindow>
+#include "source/ECS/ECS.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ApplicationWindow; }
@@ -20,5 +21,6 @@ private slots:
 
 private:
     Ui::ApplicationWindow *ui;
+    Night::Scene *m_Scene;
 };
 #endif // APPLICATIONWINDOW_H

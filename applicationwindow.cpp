@@ -4,12 +4,14 @@
 ApplicationWindow::ApplicationWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ApplicationWindow)
+    , m_Scene(new Night::Scene())
 {
     ui->setupUi(this);
 }
 
 ApplicationWindow::~ApplicationWindow()
 {
+    delete m_Scene;
     delete ui;
 }
 

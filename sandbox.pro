@@ -15,6 +15,8 @@ SOURCES += \
 
 HEADERS += \
     applicationwindow.h \
+    source/ECS/ECS.h \
+    source/ECS/components.h \
     source/ECS/scene.h
 
 FORMS += \

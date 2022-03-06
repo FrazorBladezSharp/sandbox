@@ -2,6 +2,7 @@
 #define APPLICATIONWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include "source/ECS/scene.h"
 
 QT_BEGIN_NAMESPACE
@@ -16,11 +17,15 @@ public:
     ApplicationWindow(QWidget *parent = nullptr);
     ~ApplicationWindow();
 
+    void Run();
+    void OnUpdate();
+
 private slots:
     void on_exitButton_clicked();
 
 private:
     Ui::ApplicationWindow *ui;
     Night::Scene *m_Scene;
+    QTimer *m_Timer;
 };
 #endif // APPLICATIONWINDOW_H

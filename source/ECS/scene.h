@@ -1,7 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "ECS.h"
+#include "source/night_common.h"
+
 #include "components.h"
 #include <QVector>
 #include <QUuid>
@@ -18,8 +19,6 @@ namespace Night
 
             int Entities[NIGHT_MAX_ENTITIES];
 
-            int Has_Component[NIGHT_MAX_ENTITIES][(unsigned long)Night::Component::COMP_TOTAL];
-
         };
 
     public:
@@ -29,7 +28,7 @@ namespace Night
 
             int entity_ID;
             QUuid uuid;
-            QVector <void*> components;
+            void* components[(unsigned)Night::Component::COMP_TOTAL];
 
         } Object;
 
@@ -46,7 +45,7 @@ namespace Night
     private:
         void BaseComponents(int entity_id);
 
-        Entity *m_Entity;
+        Ref<Entity> m_Entity = CreateRef<Entity>();
 
         QVector <Object*> *m_Registry;
 

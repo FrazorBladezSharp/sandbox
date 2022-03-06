@@ -2,15 +2,52 @@
 #include "ui_applicationwindow.h"
 
 #include <QVector>
-#include <iostream>
+//#include <QDebug>
 
 ApplicationWindow::ApplicationWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ApplicationWindow)
     , m_Scene(new Night::Scene())
+    , m_Timer(new QTimer(this))
 {
     ui->setupUi(this);
 
+    m_Scene->Initialize();
+
+    m_Timer->setTimerType(Qt::PreciseTimer);
+
+    connect(m_Timer, &QTimer::timeout, this, &ApplicationWindow::OnUpdate);
+
+}
+
+ApplicationWindow::~ApplicationWindow()
+{
+    delete m_Timer;
+    delete m_Scene;
+    delete ui;
+}
+
+void ApplicationWindow::Run()
+{
+    m_Timer->start(15);
+}
+
+void ApplicationWindow::OnUpdate()
+{
+    m_Timer->stop();
+
+
+
+    m_Timer->start(15);
+}
+
+
+void ApplicationWindow::on_exitButton_clicked()
+{
+    this->close();
+}
+
+/*
     m_Scene->Initialize();
 
     int entity1 = m_Scene->AddEntity();
@@ -37,18 +74,4 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
                 << std::endl;
 
     }
-
-}
-
-ApplicationWindow::~ApplicationWindow()
-{
-    delete m_Scene;
-    delete ui;
-}
-
-
-void ApplicationWindow::on_exitButton_clicked()
-{
-    this->close();
-}
-
+*/

@@ -11,13 +11,17 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     applicationwindow.cpp \
-    source/ECS/scene.cpp
+    source/ECS/scene.cpp \
+    source/implementation/output/intropicture.cpp \
+    source/implementation/output/textoutput.cpp
 
 HEADERS += \
     applicationwindow.h \
     source/ECS/ECS.h \
     source/ECS/components.h \
     source/ECS/scene.h \
+    source/implementation/output/intropicture.h \
+    source/implementation/output/textoutput.h \
     source/night_common.h
 
 FORMS += \
@@ -27,3 +31,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    source/assets/pictures/midnight.jpg

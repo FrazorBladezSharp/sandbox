@@ -55,12 +55,6 @@ void ApplicationWindow::keyPressEvent(QKeyEvent *event)
         m_Midnight->movePlayer(event);
 }
 
-
-void ApplicationWindow::on_exitButton_clicked()
-{
-    this->close();
-}
-
 void ApplicationWindow::InitializeEngine()
 {
     m_Midnight->Initialize();

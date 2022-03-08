@@ -27,7 +27,7 @@ protected:
     virtual void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
-    void on_exitButton_clicked();
+
 
 private:
     void InitializeEngine();

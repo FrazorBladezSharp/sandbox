@@ -30,6 +30,8 @@ private slots:
     void on_exitButton_clicked();
 
 private:
+    void InitializeEngine();
+
     Ui::ApplicationWindow *ui;
     Night::Midnight *m_Midnight;
     QTimer *m_Timer;

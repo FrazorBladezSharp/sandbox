@@ -15,11 +15,7 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
     ui->display_layers->setCurrentWidget(ui->intro);
     ui->display_layers->setFocus();
 
-    m_Midnight->Initialize();
-    bool result = m_Midnight->RegisterOutput(ui->text_display);
-    qDebug() << "Registry of Output = " << result;
-
-    m_Midnight->setPlayerPosition(10, 5);
+    InitializeEngine();
 
     m_Timer->setTimerType(Qt::PreciseTimer);
 
@@ -31,6 +27,7 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
 ApplicationWindow::~ApplicationWindow()
 {
     delete m_Timer;
+    delete m_Midnight;
     delete ui;
 }
 
@@ -62,4 +59,13 @@ void ApplicationWindow::keyPressEvent(QKeyEvent *event)
 void ApplicationWindow::on_exitButton_clicked()
 {
     this->close();
+}
+
+void ApplicationWindow::InitializeEngine()
+{
+    m_Midnight->Initialize();
+    bool result = m_Midnight->RegisterOutput(ui->text_display);
+    qDebug() << "Registry of Output = " << result;
+
+    m_Midnight->setPlayerPosition(10, 5);
 }

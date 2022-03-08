@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include <QTimer>
-#include "source/ECS/scene.h"
+
+#include "source/core/midnight.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -30,12 +31,7 @@ private slots:
 
 private:
     Ui::ApplicationWindow *ui;
-    Night::Scene *m_Scene;
+    Night::Midnight *m_Midnight;
     QTimer *m_Timer;
-
-    QString m_TextView;
-    int m_PosX;
-    int m_PosY;
-
 };
 #endif // APPLICATIONWINDOW_H

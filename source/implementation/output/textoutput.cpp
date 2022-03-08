@@ -6,14 +6,21 @@ namespace Night
     TextOutput::TextOutput(QWidget *parent)
         : QPlainTextEdit(parent)
     {
+
+    }
+
+    QString TextOutput::Initialize()
+    {
         // initialize text output
         for (int y = 0; y < 20; y++)
         {
-            for (int x = 0; x < 39; x++)
-                scene[x][y] = " ";
+            for (int x = 0; x < 79; x++)
+                scene[x][y] = ".";
 
-            scene[39][y] += "\n";
+            scene[79][y] += "\n";
         }
+
+        return ReconstructOutput();
     }
 
     void TextOutput::OnUpdate(QString view)
@@ -36,7 +43,7 @@ namespace Night
 
     QString TextOutput::Move(int dir_x, int dir_y, int current_x, int current_y, QString symbol)
     {
-        scene[current_x - dir_x][current_y - dir_y] = " ";
+        scene[current_x - dir_x][current_y - dir_y] = ".";
         scene[current_x][current_y] = symbol;
 
         return ReconstructOutput();
@@ -48,7 +55,7 @@ namespace Night
 
         for (int y = 0; y < 20; y++)
         {
-            for (int x = 0; x < 39; x++)
+            for (int x = 0; x < 79; x++)
                 result += scene[x][y];
 
             result += "\n";

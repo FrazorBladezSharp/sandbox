@@ -11,6 +11,8 @@ namespace Night
     public:
         TextOutput(QWidget *parent = nullptr);
 
+        QString Initialize();
+
         // this is a simple renderer : should be a system
         void OnUpdate(QString view);
         // part of the renderer
@@ -27,7 +29,7 @@ namespace Night
         // move to a system (movement)
         QString ReconstructOutput();
 
-        QString scene[40][20];
+        QString scene[80][20];
     };
 }
 

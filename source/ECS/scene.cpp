@@ -38,11 +38,8 @@ namespace Night
         return *m_Registry;
     }
 
-
-
     void Scene::BaseComponents(int entity_id)
     {
-
         Position_Component *position = new Position_Component();
 
         Object *object = new Object();
@@ -55,7 +52,5 @@ namespace Night
         object->components[(unsigned)Night::Component::COMP_POSITION] = position;
 
         m_Registry->push_back(object);
-
     }
-
 }

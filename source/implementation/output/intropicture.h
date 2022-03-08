@@ -9,8 +9,10 @@ namespace Night
     class IntroPicture : public QGraphicsView
     {
         Q_OBJECT
+
     public:
         IntroPicture(QWidget *parent);
+
         ~IntroPicture();
 
 

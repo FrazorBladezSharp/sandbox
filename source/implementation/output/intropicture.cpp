@@ -16,6 +16,7 @@ namespace Night
         {
             qDebug() << "Error: Unable to find file";
         }
+
         m_Gfx->addPixmap(QPixmap::fromImage(image));
 
         this->setScene(m_Gfx);

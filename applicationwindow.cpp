@@ -45,10 +45,8 @@ void ApplicationWindow::OnUpdate()
 {
     m_Timer->stop();
 
-
     // update main engine - our first interface
     ui->text_display->OnUpdate(m_TextView);
-
 
     m_Timer->start(15);
 }
@@ -57,7 +55,6 @@ void ApplicationWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key::Key_Any && ui->display_layers->currentWidget() == ui->intro)
         ui->display_layers->setCurrentWidget(ui->output_text_display);
-
 
     // this is a system
     if(ui->display_layers->currentWidget() == ui->output_text_display)

@@ -12,6 +12,7 @@ SOURCES += \
     main.cpp \
     applicationwindow.cpp \
     source/ECS/scene.cpp \
+    source/core/midnight.cpp \
     source/implementation/output/intropicture.cpp \
     source/implementation/output/textoutput.cpp
 
@@ -19,6 +20,7 @@ HEADERS += \
     applicationwindow.h \
     source/ECS/components.h \
     source/ECS/scene.h \
+    source/core/midnight.h \
     source/implementation/output/intropicture.h \
     source/implementation/output/textoutput.h \
     source/night_common.h

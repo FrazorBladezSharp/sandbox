@@ -8,15 +8,15 @@ namespace Night
         : QObject{parent}
         , m_Scene(CreateRef<Scene>())
         , m_Output(CreateRef<TextOutput>(nullptr))
+        , m_Camera(CreateRef<Camera>(m_Scene->AddEntity(), m_Scene))
+        , m_Player(CreateRef<Player>(m_Scene->AddEntity(), m_Scene))
     {
         m_Scene->Initialize();
-
     }
 
     void Midnight::Initialize()
     {
-        camera = m_Scene->AddEntity();
-        player = m_Scene->AddEntity();
+        // Empty
     }
 
     void Midnight::OnUpdate()
@@ -38,13 +38,8 @@ namespace Night
 
     void Midnight::setPlayerPosition(int x, int y)
     {
-        Position_Component* player_position = nullptr;
-
-        auto registry = m_Scene->ViewRegistry();
-
-        Scene::Object* object = registry[player];
-
-        player_position = static_cast<Position_Component*>(object->components[(int)Component::COMP_POSITION]);
+        Position_Component* player_position =
+                m_Player->getPosition();
 
         player_position->x = x;
         player_position->y = y;
@@ -54,31 +49,27 @@ namespace Night
 
     void Midnight::movePlayer(QKeyEvent *event)
     {
-        Position_Component* player_position = nullptr;
+        Position_Component* player_position =
+                m_Player->getPosition();
+
         int x = 0;
         int y = 0;
 
-        auto registry = m_Scene->ViewRegistry();
-
-        Scene::Object* object = registry[player];
-
-        player_position = static_cast<Position_Component*>(object->components[(int)Component::COMP_POSITION]);
-
-        int m_PosX = player_position->x;
-        int m_PosY = player_position->y;
+        int posX = player_position->x;
+        int posY = player_position->y;
 
         x += ((event->key() == Qt::Key::Key_D) * 1);
         x -= ((event->key() == Qt::Key::Key_A) * 1);
         y += ((event->key() == Qt::Key::Key_S) * 1);
         y -= ((event->key() == Qt::Key::Key_W) * 1);
 
-        x = (x * ((m_PosX + x >= 0) && (m_PosX + x < 79)));
-        y = (y * ((m_PosY + y >= 0) && (m_PosY + y < 20)));
-        m_PosX += x;
-        m_PosY += y;
+        x = (x * ((posX + x >= 0) && (posX + x < 79)));
+        y = (y * ((posY + y >= 0) && (posY + y < 20)));
+        posX += x;
+        posY += y;
 
-        m_TextView = m_Output->Move(x, y, m_PosX, m_PosY, "P");
-        setPlayerPosition(m_PosX, m_PosY);
+        m_TextView = m_Output->Move(x, y, posX, posY, "P");
+        setPlayerPosition(posX, posY);
     }
 
 }

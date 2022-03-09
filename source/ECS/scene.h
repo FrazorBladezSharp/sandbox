@@ -45,6 +45,7 @@ namespace Night
     private:
         void BaseComponents(int entity_id);
 
+        // needs to be kept in sync with Entity.
         Ref<Entity> m_Entity = CreateRef<Entity>();
 
         QVector <Object*> *m_Registry;

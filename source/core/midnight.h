@@ -5,6 +5,7 @@
 #include <QObject>
 
 #include "source/ECS/scene.h"
+#include "source/implementation/mobile/mobiles.h"
 #include "source/implementation/output/textoutput.h"
 
 namespace Night
@@ -31,8 +32,8 @@ namespace Night
     private:
         Ref<Scene> m_Scene;
         Ref<TextOutput> m_Output;
-        int camera = NIGHT_UNUSED;
-        int player = NIGHT_UNUSED;
+        Ref<Camera> m_Camera;
+        Ref<Player> m_Player;
         QString m_TextView;
 
     };

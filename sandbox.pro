@@ -13,6 +13,10 @@ SOURCES += \
     applicationwindow.cpp \
     source/ECS/scene.cpp \
     source/core/midnight.cpp \
+    source/implementation/mobile/asset.cpp \
+    source/implementation/mobile/basemobile.cpp \
+    source/implementation/mobile/camera.cpp \
+    source/implementation/mobile/player.cpp \
     source/implementation/output/intropicture.cpp \
     source/implementation/output/textoutput.cpp
 
@@ -21,6 +25,11 @@ HEADERS += \
     source/ECS/components.h \
     source/ECS/scene.h \
     source/core/midnight.h \
+    source/implementation/mobile/asset.h \
+    source/implementation/mobile/basemobile.h \
+    source/implementation/mobile/camera.h \
+    source/implementation/mobile/mobiles.h \
+    source/implementation/mobile/player.h \
     source/implementation/output/intropicture.h \
     source/implementation/output/textoutput.h \
     source/night_common.h

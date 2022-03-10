@@ -18,7 +18,9 @@ SOURCES += \
     source/implementation/mobile/camera.cpp \
     source/implementation/mobile/player.cpp \
     source/implementation/output/intropicture.cpp \
-    source/implementation/output/textoutput.cpp
+    source/implementation/output/textoutput.cpp \
+    source/systems/Movement/basicmovement.cpp \
+    source/systems/Rendering/basicrendering.cpp
 
 HEADERS += \
     applicationwindow.h \
@@ -32,7 +34,9 @@ HEADERS += \
     source/implementation/mobile/player.h \
     source/implementation/output/intropicture.h \
     source/implementation/output/textoutput.h \
-    source/night_common.h
+    source/night_common.h \
+    source/systems/Movement/basicmovement.h \
+    source/systems/Rendering/basicrendering.h
 
 FORMS += \
     applicationwindow.ui

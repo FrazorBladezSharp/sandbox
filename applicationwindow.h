@@ -4,7 +4,9 @@
 #include <QMainWindow>
 #include <QTimer>
 
+#include "source/night_common.h"
 #include "source/core/midnight.h"
+#include "source/implementation/Core/mainengine.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -33,7 +35,8 @@ private:
     void InitializeEngine();
 
     Ui::ApplicationWindow *ui;
-    Night::Midnight *m_Midnight;
     QTimer *m_Timer;
+
+    Night::MainEngine *m_Midnight;
 };
 #endif // APPLICATIONWINDOW_H

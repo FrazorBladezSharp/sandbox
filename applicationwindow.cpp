@@ -2,13 +2,13 @@
 #include "ui_applicationwindow.h"
 
 #include <QVector>
-#include <QDebug>
+#include <QEvent>
 
 ApplicationWindow::ApplicationWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ApplicationWindow)
-    , m_Midnight(new Night::Midnight())
     , m_Timer(new QTimer(this))
+    , m_Midnight(new Night::MainEngine(this))
 {
     ui->setupUi(this);
 
@@ -21,13 +21,13 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
 
     connect(m_Timer, &QTimer::timeout, this, &ApplicationWindow::OnUpdate);
 
-    qDebug() << "Welcome to the Midnight Sandbox.";
+    qInfo() << "Welcome to the Midnight Sandbox.";
 }
 
 ApplicationWindow::~ApplicationWindow()
 {
-    delete m_Timer;
     delete m_Midnight;
+    delete m_Timer;
     delete ui;
 }
 
@@ -48,17 +48,19 @@ void ApplicationWindow::OnUpdate()
 
 void ApplicationWindow::keyPressEvent(QKeyEvent *event)
 {
+    // true = 1 : false = 0
     if (event->key() == Qt::Key::Key_Any && ui->display_layers->currentWidget() == ui->intro)
         ui->display_layers->setCurrentWidget(ui->output_text_display);
 
     if(ui->display_layers->currentWidget() == ui->output_text_display)
-        m_Midnight->MovePlayer(event);
+    m_Midnight->MovePlayer(event);
 }
 
 void ApplicationWindow::InitializeEngine()
-{
-    bool result = m_Midnight->RegisterOutput(ui->text_display);
-    qDebug() << "Registry of Output = " << result;
+{    
+    qInfo()
+            << "Registry of Output Device = "
+            << m_Midnight->RegisterOutput(ui->text_display);
 
     m_Midnight->SetPlayerPosition(10, 5);
 }

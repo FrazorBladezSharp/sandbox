@@ -6,6 +6,8 @@
 
 #include <memory>
 
+
+
 namespace Night
 {
 

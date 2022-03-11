@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c17 c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -12,7 +12,7 @@ SOURCES += \
     main.cpp \
     applicationwindow.cpp \
     source/ECS/scene.cpp \
-    source/core/midnight.cpp \
+    source/implementation/Core/mainengine.cpp \
     source/implementation/mobile/asset.cpp \
     source/implementation/mobile/basemobile.cpp \
     source/implementation/mobile/camera.cpp \
@@ -27,6 +27,7 @@ HEADERS += \
     source/ECS/components.h \
     source/ECS/scene.h \
     source/core/midnight.h \
+    source/implementation/Core/mainengine.h \
     source/implementation/mobile/asset.h \
     source/implementation/mobile/basemobile.h \
     source/implementation/mobile/camera.h \

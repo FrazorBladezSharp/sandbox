@@ -52,14 +52,13 @@ void ApplicationWindow::keyPressEvent(QKeyEvent *event)
         ui->display_layers->setCurrentWidget(ui->output_text_display);
 
     if(ui->display_layers->currentWidget() == ui->output_text_display)
-        m_Midnight->movePlayer(event);
+        m_Midnight->MovePlayer(event);
 }
 
 void ApplicationWindow::InitializeEngine()
 {
-    m_Midnight->Initialize();
     bool result = m_Midnight->RegisterOutput(ui->text_display);
     qDebug() << "Registry of Output = " << result;
 
-    m_Midnight->setPlayerPosition(10, 5);
+    m_Midnight->SetPlayerPosition(10, 5);
 }

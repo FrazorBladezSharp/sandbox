@@ -4,12 +4,18 @@
 
 #include "source/night_common.h"
 
+#include "source/implementation/output/textoutput.h"
+
 namespace Night
 {
     class BasicRendering
     {
     public:
         BasicRendering();
+
+        void TextRendering(
+                Ref<TextOutput> &output,
+                QString textView);
     };
 }
 

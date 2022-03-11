@@ -8,6 +8,9 @@
 #include "source/implementation/mobile/mobiles.h"
 #include "source/implementation/output/textoutput.h"
 
+#include "source/systems/Movement/basicmovement.h"
+#include "source/systems/Rendering/basicrendering.h"
+
 namespace Night
 {
     class Midnight : public QObject
@@ -17,19 +20,20 @@ namespace Night
     public:
         explicit Midnight(QObject *parent = nullptr);
 
-        void Initialize();
-
         void OnUpdate();
 
         bool RegisterOutput(TextOutput* output);
 
-        void setPlayerPosition(int x, int y);
+        void SetPlayerPosition(int x, int y);
 
-        void movePlayer(QKeyEvent *event);
+        void MovePlayer(QKeyEvent *event);
 
     signals:
 
     private:
+        Ref<BasicMovement> m_MovementSystem;
+        Ref<BasicRendering> m_RenderingSystem;
+
         Ref<Scene> m_Scene;
         Ref<TextOutput> m_Output;
         Ref<Camera> m_Camera;

@@ -6,7 +6,7 @@ namespace Night
     TextOutput::TextOutput(QWidget *parent)
         : QPlainTextEdit(parent)
     {
-
+        // Empty
     }
 
     QString TextOutput::Initialize()
@@ -21,20 +21,9 @@ namespace Night
         }
 
         return ReconstructOutput();
-    }
+    }   
 
-    void TextOutput::OnUpdate(QString view)
-    {
-        setText(view);
-        this->update();
-    }
-
-    void TextOutput::setText(const QString text)
-    {
-        this->setPlainText(text);
-    }
-
-    QString TextOutput::setPosition(int x, int y, QString symbol)
+    QString TextOutput::SetPosition(int x, int y, QString symbol)
     {
         scene[x][y] = symbol;
 

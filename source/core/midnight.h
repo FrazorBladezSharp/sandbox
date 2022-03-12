@@ -3,27 +3,44 @@
 
 #include "source/night_common.h"
 
-#include <QWidget>
+#include <QObject>
+#include "source/systems/Movement/basicmovement.h"
+#include "source/systems/Rendering/basicrendering.h"
 
+#include "source/ECS/scene.h"
+#include "source/implementation/mobile/mobiles.h"
 #include "source/implementation/output/textoutput.h"
+
+
 
 namespace Night
 {
-    class Midnight : public QWidget
+    class Midnight : public QObject
     {
         Q_OBJECT
 
     public:
-        Midnight(QWidget *parent)
-            : QWidget(parent) {}
+        Midnight(QObject *parent);
 
-        virtual void OnUpdate() = 0;
+        void OnUpdate();
 
-        virtual bool RegisterOutput(TextOutput* output) = 0;
+        bool RegisterOutput(TextOutput* output);
 
-        virtual void SetPlayerPosition(int x, int y) = 0;
+        void SetPlayerPosition(int x, int y);
 
-        virtual void MovePlayer(QKeyEvent *event) = 0;
+        void MovePlayer(QKeyEvent *event);
+
+
+    private:
+        Ref<BasicMovement> m_MovementSystem;
+        Ref<BasicRendering> m_RenderingSystem;
+
+        Ref<Scene> m_Scene;
+        Ref<TextOutput> m_Output;
+        Ref<Camera> m_Camera;
+        Ref<Player> m_Player;
+        QString m_TextView;
+
     };
 }
 

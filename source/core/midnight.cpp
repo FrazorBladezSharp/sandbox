@@ -1,11 +1,10 @@
 #include "midnight.h"
 
-#include <QDebug>
 
 namespace Night
 {
     Midnight::Midnight(QObject *parent)
-        : QObject{parent}
+        : QObject(parent)
         , m_MovementSystem(CreateRef<BasicMovement>())
         , m_RenderingSystem(CreateRef<BasicRendering>())
         , m_Scene(CreateRef<Scene>())

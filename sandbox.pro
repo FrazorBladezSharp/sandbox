@@ -12,7 +12,7 @@ SOURCES += \
     main.cpp \
     applicationwindow.cpp \
     source/ECS/scene.cpp \
-    source/implementation/Core/mainengine.cpp \
+    source/core/midnight.cpp \
     source/implementation/mobile/asset.cpp \
     source/implementation/mobile/basemobile.cpp \
     source/implementation/mobile/camera.cpp \
@@ -27,7 +27,6 @@ HEADERS += \
     source/ECS/components.h \
     source/ECS/scene.h \
     source/core/midnight.h \
-    source/implementation/Core/mainengine.h \
     source/implementation/mobile/asset.h \
     source/implementation/mobile/basemobile.h \
     source/implementation/mobile/camera.h \

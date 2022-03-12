@@ -8,7 +8,7 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ApplicationWindow)
     , m_Timer(new QTimer(this))
-    , m_Midnight(new Night::MainEngine(this))
+    , m_Midnight(new Night::Midnight(this))
 {
     ui->setupUi(this);
 

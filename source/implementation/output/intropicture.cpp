@@ -11,11 +11,17 @@ namespace Night
 
         m_Gfx = new QGraphicsScene(this);
 
-        image.load("/mnt/Projects/Projects/Rhana/sandbox/source/assets/pictures/midnight.jpg");
+        QDir build_directory;
+
+        image.load(
+            build_directory.absoluteFilePath(
+                "../sandbox/source/assets/pictures/midnight.jpg"
+            )
+        );
+
         if (image.isNull())
-        {
             qDebug() << "Error: Unable to find file";
-        }
+
 
         m_Gfx->addPixmap(QPixmap::fromImage(image));
 

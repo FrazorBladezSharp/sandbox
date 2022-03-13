@@ -3,6 +3,7 @@
 
 #include "source/night_common.h"
 #include <QGraphicsView>
+#include <QDir>
 
 namespace Night
 {

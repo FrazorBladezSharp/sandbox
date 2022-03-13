@@ -2,12 +2,15 @@
 
 #include <QApplication>
 #include <QScreen>
+#include <QDir>
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     ApplicationWindow w;
+
+    QDir::setCurrent(a.applicationDirPath());
 
     int screenWidth = w.screen()->geometry().width();
     int screenHeight = w.screen()->geometry().height();
